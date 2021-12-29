@@ -1,0 +1,33 @@
+.Header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 10px rgba(209, 209, 209, 0.5);
+}
+
+.Header > div {
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header > div > .profile {
+    display: flex;
+    align-items: center;
+}
+
+.Header > div > .profile > span {
+    padding-right: 15px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #303030;
+}
+
+.Header > div > .profile > img {
+    width: 30px;
+}

@@ -1,0 +1,33 @@
+.Checkbox {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.Checkbox input {
+    border-radius: 2px;
+    cursor: pointer;
+    border: 0;
+}
+
+.Checkbox input[type="checkbox"]:hover {
+    border: 1px solid #E4163A;
+}
+
+.Checkbox input[type="checkbox"]:disabled {
+    background: #F6F6F6;
+    border-radius: 1px;
+}
+
+.Checkbox input[type="checkbox"]:checked {
+    background: #E4163A;
+}
+
+.Checkbox label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #707070;
+}
