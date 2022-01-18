@@ -1,26 +1,27 @@
 import React from 'react';
+import {UseFormRegister} from "react-hook-form";
 import './checkbox.css'
 
 interface ICheckbox {
     text: string;
-    checked?: boolean;
-    setChecked?: any;
+    name: string;
+    register: UseFormRegister<any>;
+    required?: boolean;
+    error?: string;
 }
 
-export function Checkbox({text, checked, setChecked}: ICheckbox) {
-
-    function toggle(value:boolean){
-        return !value;
-    }
-
+export function Checkbox({text, name, register, required, error}: ICheckbox) {
     return (
         <div className="Checkbox">
-            <input
-                checked={checked}
-                onChange={() => setChecked(toggle)}
-                type="checkbox"
-            />
-            <label>{text}</label>
+            <div>
+                <input
+                    {...register(name, {required})}
+                    name={name}
+                    type="checkbox"
+                />
+                <label>{text}</label>
+            </div>
+            {error ? <span>{error}</span> : null}
         </div>
     );
 }

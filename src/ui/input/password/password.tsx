@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../input.css'
 import './password.css'
 import {GetIcon} from "../../../assets/icons/icons";
+import {UseFormRegister} from "react-hook-form"
 
 interface IPasswordProps {
     children?: React.ReactNode;
@@ -10,11 +11,23 @@ interface IPasswordProps {
     height?: string | number;
     label: string;
     error?: string;
-    setValue?: any;
-    value?: any;
+    name: string
+    register: UseFormRegister<any>;
+    required?: boolean;
 }
 
-export function Password({placeholder, width, height, label, error, setValue, value}: IPasswordProps) {
+export function Password(
+    {
+        placeholder,
+        width,
+        height,
+        label,
+        error,
+        name,
+        register,
+        required
+    }: IPasswordProps) {
+
     const [passwordShown, setPasswordShown] = useState(false);
 
     const togglePassword = () => {
@@ -26,11 +39,11 @@ export function Password({placeholder, width, height, label, error, setValue, va
             {label ? <label>{label}</label> : null}
             <div>
                 <input
+                    {...register(name, {required})}
+                    name={name}
                     type={passwordShown ? 'text' : 'password'}
                     placeholder={placeholder}
                     style={{width: width, height: height}}
-                    onChange={(e) => setValue(e.currentTarget.value)}
-                    value={value}
                 />
                 <img onClick={togglePassword} src={passwordShown ? GetIcon('Close_eye') : GetIcon('Eye')} alt="Icon"/>
             </div>

@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Password} from "../../../ui/input/password/password";
 import {Button} from "../../../ui/button/button";
 import {Input} from '../../../ui/input/input';
@@ -7,23 +7,34 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {login as onHandleLogin} from "../../../core/redux/actions/auth";
 import {useDispatch} from "react-redux";
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import * as Yup from 'yup';
 
-function SignInForm(props: any)  {
-    const [login, setLogin] = useState<string>("")
-    const [password, setPassword] = useState<string>("")
+function SignInForm(props: any) {
+
+    const validationSchema = Yup.object({
+        login: Yup.string().required(),
+        password: Yup.string()
+            .min(6, 'Password must be at least 6 characters')
+            .required('Password is required'),
+    }).required();
+
+    const {
+        register,
+        formState: {errors, isValid},
+        handleSubmit
+    } = useForm({
+        mode: "onChange",
+        resolver: yupResolver(validationSchema)
+    })
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-
-    function onHandleSubmit(e: SyntheticEvent) {
-        e.preventDefault()
-
-        dispatch(onHandleLogin(login, password))
-    }
-
-    function onHandleCheck() {
-        return !(login && password)
-    }
+    const onHandleSubmit = handleSubmit((data) => {
+        dispatch(onHandleLogin(data.login, data.password))
+    })
 
     useEffect(() => {
         if (props.user) {
@@ -35,13 +46,21 @@ function SignInForm(props: any)  {
         <>
             <form onSubmit={onHandleSubmit}>
                 <h1>Sign In</h1>
-                <Input setValue={setLogin} value={login} label="Login"/>
-                <Password
-                    label="Password"
-                    setValue={setPassword}
-                    value={password}
+                <Input
+                    register={register}
+                    required
+                    label="Login"
+                    name="login"
+                    error={errors.login?.message}
                 />
-                <Button disabled={onHandleCheck()} text="Sign In"/>
+                <Password
+                    register={register}
+                    required
+                    label="Password"
+                    name="password"
+                    error={errors.password?.message}
+                />
+                <Button disabled={!isValid} text="Sign In"/>
                 <Text>Not a member yet? <NavLink to="/register">Sign up</NavLink></Text>
             </form>
         </>
