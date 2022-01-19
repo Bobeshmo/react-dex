@@ -69,7 +69,7 @@ function SignInForm(props: any) {
 
 const mapStateToProps = (state: any) => {
     return {
-        user: state.auth.user
+        user: state.auth.user,
     };
 }
 
