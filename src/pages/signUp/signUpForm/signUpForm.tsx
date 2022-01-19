@@ -29,7 +29,7 @@ function SignUpForm(props: any) {
         formState: {errors, isValid},
         handleSubmit
     } = useForm({
-        mode: "onChange",
+        mode: "all",
         resolver: yupResolver(validationSchema)
     })
 
