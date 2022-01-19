@@ -3,7 +3,6 @@ import {AuthService} from "../../../api/requests/authorization";
 export const login = (login: string, password: string) => (dispatch: any) => {
     return AuthService.onHandleSignIn(login, password).then(
         (data) => {
-            console.log(data)
             try {
                 dispatch({
                     type: "LOGIN_SUCCESS",
@@ -13,7 +12,6 @@ export const login = (login: string, password: string) => (dispatch: any) => {
                 dispatch({
                     type: "LOGIN_FAIL",
                 });
-                console.log(data)
             }
         }
     );
