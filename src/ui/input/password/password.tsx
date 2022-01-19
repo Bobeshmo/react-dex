@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import '../input.css'
-import './password.css'
+import styles from './password.module.css'
 import {GetIcon} from "../../../assets/icons/icons";
 import {UseFormRegister} from "react-hook-form"
 
@@ -35,7 +34,7 @@ export function Password(
     };
 
     return (
-        <div className="Input">
+        <div className={styles.Input}>
             {label ? <label>{label}</label> : null}
             <div>
                 <input

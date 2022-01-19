@@ -4,11 +4,11 @@ import {SignIn} from "./pages/signIn/signIn";
 import {SignUp} from "./pages/signUp/signUp";
 import PrivateRoute from "./PrivateRoute";
 import {Home} from "./pages/home/home";
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
     return (
-        <div className="App">
+        <div className={styles.App}>
             <Routes>
                 <Route element={<PrivateRoute/>}>
                     <Route path="/" element={<Home/>}/>

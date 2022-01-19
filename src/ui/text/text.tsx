@@ -1,5 +1,5 @@
 import React from 'react';
-import './text.css'
+import styles from './text.module.css'
 
 interface IText {
     children: React.ReactNode;
@@ -7,7 +7,7 @@ interface IText {
 
 export function Text({children}: IText) {
     return (
-        <div className="Text">
+        <div className={styles.Text}>
             {children}
         </div>
     );

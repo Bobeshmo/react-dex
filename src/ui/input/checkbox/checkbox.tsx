@@ -1,6 +1,6 @@
 import React from 'react';
 import {UseFormRegister} from "react-hook-form";
-import './checkbox.css'
+import styles from './checkbox.module.css'
 
 interface ICheckbox {
     text: string;
@@ -12,7 +12,7 @@ interface ICheckbox {
 
 export function Checkbox({text, name, register, required, error}: ICheckbox) {
     return (
-        <div className="Checkbox">
+        <div className={styles.Checkbox}>
             <div>
                 <input
                     {...register(name, {required})}

@@ -1,9 +1,9 @@
 import React, {FC} from "react";
-import "./notification.css"
+import styles from "./notification.module.css"
 
 export const Notification: FC = ({children}) => {
     return (
-        <div className="Notification">
+        <div className={styles.Notification}>
             {children}
         </div>
     );

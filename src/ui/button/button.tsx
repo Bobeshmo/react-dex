@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css'
+import styles from './button.module.css'
 
 interface IButtonProps {
     children?: React.ReactNode;
@@ -15,7 +15,7 @@ export function Button({text, height, width, disabled=false, children}: IButtonP
             <button
                 disabled={disabled}
                 style={{height: height, width: width}}
-                className="btn"
+                className={styles.btn}
             >
                 {text}
                 {children}

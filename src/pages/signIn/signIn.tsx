@@ -4,10 +4,10 @@ import Authentication from "../../components/authentication/authentication";
 
 export function SignIn() {
     return (
-        <div className="SignIn">
+        <React.Fragment>
             <Authentication icon="Group">
                 <SignInForm />
             </Authentication>
-        </div>
+        </React.Fragment>
     );
 }

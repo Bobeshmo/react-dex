@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {UseFormRegister} from "react-hook-form"
-import './input.css'
+import styles from './input.module.css'
 
 interface IInputProps {
     type?: string
@@ -28,7 +28,7 @@ export const Input: FC<IInputProps> = (
     }) => {
 
     return (
-        <div className="Input">
+        <div className={styles.Input}>
             {label ? <label>{label}</label> : null}
             <div>
                 <input

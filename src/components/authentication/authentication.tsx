@@ -1,5 +1,5 @@
 import React from 'react';
-import './authentication.css'
+import styles from './authentication.module.css'
 import {GetIcon} from "../../assets/icons/icons";
 import {Notification} from "../notification/notification";
 import {connect} from "react-redux";
@@ -12,13 +12,13 @@ interface IAuthentication {
 
 const Authentication = (props: IAuthentication)  => {
     return (
-        <div className="Authentication">
-            <div className="form">
-                <div className="Authentication_form">
+        <div className={styles.Authentication}>
+            <div className={styles.form}>
+                <div className={styles.Authentication_form}>
                     {props.children}
                 </div>
             </div>
-            <div className="group">
+            <div className={styles.group}>
                 <img src={GetIcon(props.icon)} alt="Group"/>
             </div>
             {props.message ? <Notification>{props.message}</Notification> : null}

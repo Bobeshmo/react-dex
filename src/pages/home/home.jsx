@@ -1,10 +1,10 @@
 import React from 'react';
-import './home.css'
+import styles from './home.module.css'
 import Header from "../../components/header/header";
 
 export function Home() {
     return (
-        <div>
+        <div className={styles.Home}>
             <Header />
         </div>
     );
