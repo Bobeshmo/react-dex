@@ -43,3 +43,10 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .Authentication > .form > .Authentication_form {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
