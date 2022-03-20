@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './authentication.module.css'
 import {GetIcon} from "../../assets/icons/icons";
-import {Notification} from "../notification/notification";
+import {Notification} from "../../ui/notification/notification";
 import {connect} from "react-redux";
 
 interface IAuthentication {

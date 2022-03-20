@@ -12,6 +12,14 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 
 function SignInForm(props: any) {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (props.user) {
+            navigate("/")
+        }
+    }, [props.user])
 
     const validationSchema = Yup.object({
         login: Yup.string().required(),
@@ -29,17 +37,8 @@ function SignInForm(props: any) {
         resolver: yupResolver(validationSchema)
     })
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
     const onHandleSubmit = handleSubmit((data) => {
         dispatch(onHandleLogin(data.login, data.password))
-    })
-
-    useEffect(() => {
-        if (props.user) {
-            navigate("/")
-        }
     })
 
     return (

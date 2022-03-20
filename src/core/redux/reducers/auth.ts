@@ -1,6 +1,6 @@
 const initialState = {
-    message: null,
-    user: null
+    user: null,
+    message: null
 }
 
 export function auth(state = initialState, action: any) {
