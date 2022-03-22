@@ -1,48 +1,29 @@
-const Icons = {
-    Add: require('./Add.svg'),
-    Close_eye: require('./Close_eye.svg'),
-    Create: require('./Create.svg'),
-    Delete: require('./Delete.svg'),
-    Eye: require('./Eye.svg'),
-    Group_person: require('./Group_person.svg'),
-    Log_out: require('./Log_out.svg'),
-    Person: require('./Person.svg'),
-    Profile: require('./Profile.svg'),
-    Search: require('./Search.svg'),
-    Logo: require('./Logo.svg'),
-    Group: require('./Group.svg'),
-    Group_2: require('./Group_2.svg'),
-}
+import {ReactComponent as Add} from "./Add.svg";
+import {ReactComponent as CloseEye} from "./Close_eye.svg";
+import {ReactComponent as Create} from "./Create.svg";
+import {ReactComponent as Delete} from "./Delete.svg";
+import {ReactComponent as Eye} from "./Eye.svg";
+import {ReactComponent as GroupPerson} from "./Group_person.svg";
+import {ReactComponent as LogOut} from "./Log_out.svg";
+import {ReactComponent as Person} from "./Person.svg";
+import {ReactComponent as Profile} from "./Profile.svg";
+import {ReactComponent as Search} from "./Search.svg";
+import {ReactComponent as Logo} from "./Logo.svg";
+import {ReactComponent as Group} from "./Group.svg";
+import {ReactComponent as Group2} from "./Group_2.svg";
 
-export function GetIcon(value:string) {
-    switch (value) {
-        case 'Add':
-            return Icons.Add.default
-        case 'Close_eye':
-            return Icons.Close_eye.default
-        case 'Create':
-            return Icons.Create.default
-        case 'Delete':
-            return Icons.Delete.default
-        case 'Eye':
-            return Icons.Eye.default
-        case 'Group_person':
-            return Icons.Group_person.default
-        case 'Log_out':
-            return Icons.Log_out.default
-        case 'Person':
-            return Icons.Person.default
-        case 'Profile':
-            return Icons.Profile.default
-        case 'Search':
-            return Icons.Search.default
-        case 'Logo':
-            return Icons.Logo.default
-        case 'Group':
-            return Icons.Group.default
-        case 'Group_2':
-            return Icons.Group_2.default
-        default:
-            return null
-    }
+export {
+    Add,
+    CloseEye,
+    Create,
+    Delete,
+    Eye,
+    GroupPerson,
+    LogOut,
+    Person,
+    Profile,
+    Search,
+    Logo,
+    Group,
+    Group2
 }

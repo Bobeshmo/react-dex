@@ -1,9 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import styles from './navbar.module.sass'
-import {ReactComponent as GroupPerson} from '../../assets/icons/Group_person.svg'
-import {ReactComponent as LogOut} from "../../assets/icons/Log_out.svg";
-import {ReactComponent as Person} from '../../assets/icons/Person.svg'
+import {GroupPerson, LogOut, Person} from '../../assets/icons/icons'
 
 export const Navbar = () => {
     return (

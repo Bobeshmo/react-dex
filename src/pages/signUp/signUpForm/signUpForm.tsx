@@ -5,25 +5,27 @@ import {Button} from "../../../ui/button/button";
 import {Input} from "../../../ui/input/input";
 import {Text} from "../../../ui/text/text";
 import {Link, useNavigate} from "react-router-dom";
-import {connect, useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {register as onHandleRegister} from "../../../core/redux/actions/auth";
+import {RootState} from "../../../core/redux/store";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 
-function SignUpForm(props: any) {
+export function SignUpForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const user = useSelector((state: RootState) => state.auth.user)
 
     useEffect(() => {
-        if (props.user) {
+        if (user) {
             navigate("/")
         }
-    }, [props.user])
+    }, [user])
 
     const validationSchema = Yup.object({
-        name: Yup.string().required(),
-        login: Yup.string().required(),
+        name: Yup.string().required("Name is a required field"),
+        login: Yup.string().required("Login is a required field"),
         password: Yup.string()
             .min(6, 'Password must be at least 6 characters')
             .required('Password is required'),
@@ -78,18 +80,11 @@ function SignUpForm(props: any) {
                     name="confirmPassword"
                     error={errors.confirmPassword?.message}
                 />
-                <Checkbox error={errors.check?.message} register={register} required name="check" text="I accept the agreement"/>
+                <Checkbox error={errors.check?.message} register={register} required name="check"
+                          text="I accept the agreement"/>
                 <Button disabled={!isValid} text="Sign Up"/>
                 <Text>Already a member? <Link className="Link" to="/login">Sign in</Link></Text>
             </form>
         </>
     );
 }
-
-const mapStateToProps = (state: any) => {
-    return {
-        user: state.auth.user
-    };
-}
-
-export default connect(mapStateToProps)(SignUpForm)

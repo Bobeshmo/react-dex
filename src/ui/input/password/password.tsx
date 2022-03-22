@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import styles from './password.module.sass'
-import {GetIcon} from "../../../assets/icons/icons";
 import {UseFormRegister} from "react-hook-form"
+import {CloseEye, Eye} from "../../../assets/icons/icons";
+import styles from './password.module.sass'
 
 interface IPasswordProps {
     children?: React.ReactNode;
@@ -44,7 +44,11 @@ export function Password(
                     placeholder={placeholder}
                     style={{width: width, height: height}}
                 />
-                <img onClick={togglePassword} src={passwordShown ? GetIcon('Close_eye') : GetIcon('Eye')} alt="Icon"/>
+                <div className={styles.Eye} onClick={togglePassword}>
+                    {
+                        passwordShown ? <CloseEye/> : <Eye/>
+                    }
+                </div>
             </div>
             {error ? <span>{error}</span> : null}
         </div>

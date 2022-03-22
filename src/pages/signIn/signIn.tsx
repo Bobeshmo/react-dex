@@ -1,11 +1,12 @@
 import React from 'react';
-import SignInForm from "./singInForm/signInForm";
-import Authentication from "../../components/authentication/authentication";
+import {Authentication} from "../../components/authentication/authentication";
+import {SignInForm} from "./singInForm/signInForm";
+import {Group} from "../../assets/icons/icons";
 
 export function SignIn() {
     return (
         <React.Fragment>
-            <Authentication icon="Group">
+            <Authentication icon={<Group/>}>
                 <SignInForm />
             </Authentication>
         </React.Fragment>

@@ -4,25 +4,26 @@ import {Button} from "../../../ui/button/button";
 import {Input} from '../../../ui/input/input';
 import {Text} from "../../../ui/text/text";
 import {Link, useNavigate} from "react-router-dom";
-import {connect} from "react-redux";
 import {login as onHandleLogin} from "../../../core/redux/actions/auth";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../../core/redux/store";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 
-function SignInForm(props: any) {
+export function SignInForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const user = useSelector((state: RootState) => state.auth.user)
 
     useEffect(() => {
-        if (props.user) {
+        if (user) {
             navigate("/")
         }
-    }, [props.user])
+    }, [user])
 
     const validationSchema = Yup.object({
-        login: Yup.string().required(),
+        login: Yup.string().required("Login is a required field"),
         password: Yup.string()
             .min(6, 'Password must be at least 6 characters')
             .required('Password is required'),
@@ -65,11 +66,3 @@ function SignInForm(props: any) {
         </>
     );
 }
-
-const mapStateToProps = (state: any) => {
-    return {
-        user: state.auth.user,
-    };
-}
-
-export default connect(mapStateToProps)(SignInForm)

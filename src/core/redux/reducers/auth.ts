@@ -1,4 +1,9 @@
-const initialState = {
+interface IState {
+    user: string | null,
+    message: string | null,
+}
+
+const initialState : IState = {
     user: null,
     message: null
 }

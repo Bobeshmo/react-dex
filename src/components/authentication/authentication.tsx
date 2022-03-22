@@ -1,16 +1,17 @@
 import React from 'react';
-import styles from './authentication.module.sass'
-import {GetIcon} from "../../assets/icons/icons";
 import {Notification} from "../../ui/notification/notification";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
+import {RootState} from "../../core/redux/store";
+import styles from './authentication.module.sass'
 
 interface IAuthentication {
     children: React.ReactNode
-    icon: string;
-    message: string | null
+    icon: React.ReactNode;
 }
 
-const Authentication = (props: IAuthentication)  => {
+export const Authentication = (props: IAuthentication)  => {
+    const errorMessage = useSelector((state : RootState) => state.auth.message)
+
     return (
         <div className={styles.Authentication}>
             <div className={styles.form}>
@@ -19,17 +20,9 @@ const Authentication = (props: IAuthentication)  => {
                 </div>
             </div>
             <div className={styles.group}>
-                <img src={GetIcon(props.icon)} alt="Group"/>
+                {props.icon}
             </div>
-            {props.message ? <Notification>{props.message}</Notification> : null}
+            {errorMessage ? <Notification>{errorMessage}</Notification> : null}
         </div>
     );
 }
-
-const mapStateToProps = (state: any) => {
-    return {
-        message: state.auth.message,
-    };
-}
-
-export default connect(mapStateToProps)(Authentication)

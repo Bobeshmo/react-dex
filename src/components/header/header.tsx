@@ -1,26 +1,21 @@
 import React from 'react';
-import {GetIcon} from '../../assets/icons/icons';
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
+import {RootState} from "../../core/redux/store";
+import {Profile, Logo} from "../../assets/icons/icons";
 import styles from './header.module.sass'
 
-function Header(props: any) {
+export function Header() {
+    const userName = useSelector((state : RootState) => state.auth.user)
+
     return (
         <div className={styles.Header}>
             <div>
-                <img src={GetIcon("Logo")} alt="Logo"/>
+                <Logo/>
                 <div className={styles.profile}>
-                    <span>{props.user}</span>
-                    <img src={GetIcon("Profile")} alt="Profile"/>
+                    <span>{userName}</span>
+                    <Profile/>
                 </div>
             </div>
         </div>
     );
 }
-
-const mapStateToProps = (state: any) => {
-    return {
-        user: state.auth.user
-    };
-}
-
-export default connect(mapStateToProps)(Header);
