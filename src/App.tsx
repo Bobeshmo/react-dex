@@ -3,7 +3,7 @@ import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import {SignIn} from "./pages/signIn/signIn";
 import {SignUp} from "./pages/signUp/signUp";
 import PrivateRoute from "./PrivateRoute";
-import styles from './App.module.css';
+import styles from './App.module.sass';
 import {Team} from "./pages/team/team";
 import {Players} from "./pages/players/players";
 import {AxiosInterceptorsSetup} from "./axios/interceptor";

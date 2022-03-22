@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {UseFormRegister} from "react-hook-form"
-import styles from './input.module.css'
+import styles from './input.module.sass'
 
 interface IInputProps {
     type?: string

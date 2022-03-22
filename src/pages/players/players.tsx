@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './players.module.css'
+import styles from './players.module.sass'
 import Header from "../../components/header/header";
 import {Navbar} from "../../components/navbar/navbar";
 

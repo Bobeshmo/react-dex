@@ -1,7 +1,7 @@
 import React from 'react';
 import {GetIcon} from '../../assets/icons/icons';
 import {connect} from "react-redux";
-import styles from './header.module.css'
+import styles from './header.module.sass'
 
 function Header(props: any) {
     return (

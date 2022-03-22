@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import styles from "./notification.module.css"
+import styles from "./notification.module.sass"
 
 export const Notification: FC = ({children}) => {
     return (

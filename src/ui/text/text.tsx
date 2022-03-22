@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './text.module.css'
+import styles from './text.module.sass'
 
 interface IText {
     children: React.ReactNode;

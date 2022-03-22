@@ -1,0 +1,41 @@
+.Authentication
+  display: flex
+  height: 100vh
+
+.Authentication > .form
+  width: 40%
+  display: flex
+  justify-content: center
+  align-items: center
+
+.Authentication > .group
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-grow: 1
+  background: #F5FBFF
+
+.Authentication > .group > img
+  width: 600px
+
+.Authentication > .form > .Authentication_form
+  width: 365px
+
+.Authentication form > h1
+  font-style: normal
+  font-weight: normal
+  font-size: 36px
+  line-height: 49px
+  color: #344472
+
+@media screen and (max-width: 1024px)
+  .Authentication > .group
+    display: none
+
+  .Authentication .form
+    width: 100%
+
+@media screen and (max-width: 425px)
+  .Authentication > .form > .Authentication_form
+    width: 100%
+    padding: 0 20px

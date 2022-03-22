@@ -1,6 +1,6 @@
 import React from 'react';
 import {UseFormRegister} from "react-hook-form";
-import styles from './checkbox.module.css'
+import styles from './checkbox.module.sass'
 
 interface ICheckbox {
     text: string;

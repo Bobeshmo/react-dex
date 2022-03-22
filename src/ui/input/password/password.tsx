@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './password.module.css'
+import styles from './password.module.sass'
 import {GetIcon} from "../../../assets/icons/icons";
 import {UseFormRegister} from "react-hook-form"
 
