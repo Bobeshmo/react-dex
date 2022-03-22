@@ -1,10 +1,11 @@
 export interface ISignIn {
-    login: string
-    password: string
+    name: string
+    avatarUrl: string
+    token: string
 }
 
 export interface ISignUp {
-    userName: string
-    login: string
-    password: string
+    name: string
+    avatarUrl: string
+    token: string
 }
