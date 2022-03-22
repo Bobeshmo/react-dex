@@ -3,7 +3,7 @@ import {Password} from "../../../ui/input/password/password";
 import {Button} from "../../../ui/button/button";
 import {Input} from '../../../ui/input/input';
 import {Text} from "../../../ui/text/text";
-import {NavLink, useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {connect} from "react-redux";
 import {login as onHandleLogin} from "../../../core/redux/actions/auth";
 import {useDispatch} from "react-redux";
@@ -60,7 +60,7 @@ function SignInForm(props: any) {
                     error={errors.password?.message}
                 />
                 <Button disabled={!isValid} text="Sign In"/>
-                <Text>Not a member yet? <NavLink to="/register">Sign up</NavLink></Text>
+                <Text>Not a member yet? <Link className="Link" to="/register">Sign up</Link></Text>
             </form>
         </>
     );

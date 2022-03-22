@@ -4,7 +4,7 @@ import {Password} from "../../../ui/input/password/password";
 import {Button} from "../../../ui/button/button";
 import {Input} from "../../../ui/input/input";
 import {Text} from "../../../ui/text/text";
-import {NavLink, useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {connect, useDispatch} from "react-redux";
 import {register as onHandleRegister} from "../../../core/redux/actions/auth";
 import {useForm} from "react-hook-form";
@@ -80,7 +80,7 @@ function SignUpForm(props: any) {
                 />
                 <Checkbox error={errors.check?.message} register={register} required name="check" text="I accept the agreement"/>
                 <Button disabled={!isValid} text="Sign Up"/>
-                <Text>Already a member? <NavLink to="/login">Sign in</NavLink></Text>
+                <Text>Already a member? <Link className="Link" to="/login">Sign in</Link></Text>
             </form>
         </>
     );
