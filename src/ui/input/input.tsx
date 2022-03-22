@@ -39,7 +39,7 @@ export const Input: FC<IInputProps> = (
                     style={{width: width, height: height}}
                 />
             </div>
-            {error ? <span>{error}</span> : null}
+            {error ? <span className={styles.Error}>{error}</span> : null}
         </div>
     );
 }
