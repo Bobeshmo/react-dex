@@ -1,6 +1,6 @@
 import {AuthService} from "../../../api/requests/authorization";
 
-export const login = (login: string, password: string) => (dispatch: any) => {
+const login = (login: string, password: string) => (dispatch: any) => {
     return AuthService.onHandleSignIn(login, password).then(
         (response) => {
             localStorage.setItem("token", response.data.token)
@@ -16,7 +16,7 @@ export const login = (login: string, password: string) => (dispatch: any) => {
     );
 };
 
-export const register = (userName: string, login: string, password: string) => (dispatch: any) => {
+const register = (userName: string, login: string, password: string) => (dispatch: any) => {
     return AuthService.onHandleSignUp(userName, login, password).then(
         (response) => {
             localStorage.setItem("token", response.data.token)
@@ -31,3 +31,8 @@ export const register = (userName: string, login: string, password: string) => (
         })
     );
 };
+
+export {
+    login,
+    register
+}

@@ -43,26 +43,24 @@ export function SignInForm() {
     })
 
     return (
-        <>
-            <form onSubmit={onHandleSubmit}>
-                <h1>Sign In</h1>
-                <Input
-                    register={register}
-                    required
-                    label="Login"
-                    name="login"
-                    error={errors.login?.message}
-                />
-                <Password
-                    register={register}
-                    required
-                    label="Password"
-                    name="password"
-                    error={errors.password?.message}
-                />
-                <Button disabled={!isValid} text="Sign In"/>
-                <Text>Not a member yet? <Link className="Link" to="/register">Sign up</Link></Text>
-            </form>
-        </>
+        <form onSubmit={onHandleSubmit}>
+            <h1>Sign In</h1>
+            <Input
+                register={register}
+                required
+                label="Login"
+                name="login"
+                error={errors.login?.message}
+            />
+            <Password
+                register={register}
+                required
+                label="Password"
+                name="password"
+                error={errors.password?.message}
+            />
+            <Button disabled={!isValid} text="Sign In"/>
+            <Text>Not a member yet? <Link className="Link" to="/register">Sign up</Link></Text>
+        </form>
     );
 }

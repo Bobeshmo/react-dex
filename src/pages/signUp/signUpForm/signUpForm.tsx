@@ -24,8 +24,10 @@ export function SignUpForm() {
     }, [user])
 
     const validationSchema = Yup.object({
-        name: Yup.string().required("Name is a required field"),
-        login: Yup.string().required("Login is a required field"),
+        name: Yup.string()
+            .required("Name is a required field"),
+        login: Yup.string()
+            .required("Login is a required field"),
         password: Yup.string()
             .min(6, 'Password must be at least 6 characters')
             .required('Password is required'),
@@ -49,42 +51,40 @@ export function SignUpForm() {
     })
 
     return (
-        <>
-            <form onSubmit={onHandleSubmit}>
-                <h1>Sign Up</h1>
-                <Input
-                    register={register}
-                    required
-                    label="Name"
-                    name="name"
-                    error={errors.name?.message}
-                />
-                <Input
-                    register={register}
-                    required
-                    label="Login"
-                    name="login"
-                    error={errors.login?.message}
-                />
-                <Password
-                    register={register}
-                    required
-                    label="Password"
-                    name="password"
-                    error={errors.password?.message}
-                />
-                <Password
-                    register={register}
-                    required
-                    label="Enter your password again"
-                    name="confirmPassword"
-                    error={errors.confirmPassword?.message}
-                />
-                <Checkbox error={errors.check?.message} register={register} required name="check"
-                          text="I accept the agreement"/>
-                <Button disabled={!isValid} text="Sign Up"/>
-                <Text>Already a member? <Link className="Link" to="/login">Sign in</Link></Text>
-            </form>
-        </>
+        <form onSubmit={onHandleSubmit}>
+            <h1>Sign Up</h1>
+            <Input
+                register={register}
+                required
+                label="Name"
+                name="name"
+                error={errors.name?.message}
+            />
+            <Input
+                register={register}
+                required
+                label="Login"
+                name="login"
+                error={errors.login?.message}
+            />
+            <Password
+                register={register}
+                required
+                label="Password"
+                name="password"
+                error={errors.password?.message}
+            />
+            <Password
+                register={register}
+                required
+                label="Enter your password again"
+                name="confirmPassword"
+                error={errors.confirmPassword?.message}
+            />
+            <Checkbox error={errors.check?.message} register={register} required name="check"
+                      text="I accept the agreement"/>
+            <Button disabled={!isValid} text="Sign Up"/>
+            <Text>Already a member? <Link className="Link" to="/login">Sign in</Link></Text>
+        </form>
     );
 }
