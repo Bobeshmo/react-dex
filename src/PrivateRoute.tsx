@@ -1,26 +1,20 @@
 import React, {useEffect, useState} from 'react'
 import {Navigate, Outlet} from 'react-router-dom'
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
+import {RootState} from "./core/redux/store";
 
-const PrivateRoute  = (props: any) => {
+export const PrivateRoute = () => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+    const user = useSelector((state: RootState) => state.auth.user)
 
     useEffect(() => {
         const token = localStorage.getItem('token');
 
-        token && props.user ? setIsAuthenticated(true) : setIsAuthenticated(false)
+        token && user ? setIsAuthenticated(true) : setIsAuthenticated(false)
 
-    }, [isAuthenticated]);
+    }, [isAuthenticated, user]);
 
     if (isAuthenticated === null) return null;
 
     return <>{isAuthenticated ? <Outlet/> : <Navigate to='/login' replace/>}</>;
 };
-
-const mapStateToProps = (state: any) => {
-    return {
-        user: state.auth.user
-    };
-}
-
-export default connect(mapStateToProps)(PrivateRoute)

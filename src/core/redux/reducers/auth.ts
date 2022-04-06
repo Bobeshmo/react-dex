@@ -1,9 +1,17 @@
+import {
+    LOGIN_FAIL,
+    LOGIN_SUCCESS,
+    LOGOUT,
+    REGISTER_FAIL,
+    REGISTER_SUCCESS
+} from "./type";
+
 interface IState {
     user: string | null,
     message: string | null,
 }
 
-const initialState : IState = {
+const initialState: IState = {
     user: null,
     message: null
 }
@@ -12,31 +20,31 @@ export function auth(state = initialState, action: any) {
     const {type, payload} = action
 
     switch (type) {
-        case "REGISTER_SUCCESS":
+        case REGISTER_SUCCESS:
             return {
                 ...state,
                 user: payload.user,
                 message: null
             };
-        case "REGISTER_FAIL":
+        case REGISTER_FAIL:
             return {
                 ...state,
                 user: null,
                 message: "User with the same login already exists"
             };
-        case "LOGIN_SUCCESS":
+        case LOGIN_SUCCESS:
             return {
                 ...state,
                 user: payload.user,
                 message: null
             };
-        case "LOGIN_FAIL":
+        case LOGIN_FAIL:
             return {
                 ...state,
                 user: null,
                 message: "User with the specified username / password was not found."
             };
-        case "LOGOUT":
+        case LOGOUT:
             return {
                 ...state,
                 user: null,
