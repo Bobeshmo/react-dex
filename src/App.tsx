@@ -6,6 +6,7 @@ import {PrivateRoute} from "./PrivateRoute";
 import {Team} from "./pages/team/team";
 import {Players} from "./pages/players/players";
 import {AxiosInterceptorsSetup} from "./axios/interceptor";
+import {NoMatch} from "./pages/noMatch/noMatch";
 import styles from './App.module.sass';
 
 function AxiosInterceptorNavigate() {
@@ -26,6 +27,7 @@ function App() {
                 </Route>
                 <Route path="/login" element={<SignIn/>}/>
                 <Route path="/register" element={<SignUp/>}/>
+                <Route path="*" element={<NoMatch/>} />
             </Routes>
         </div>
     );

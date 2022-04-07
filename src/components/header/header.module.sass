@@ -1,8 +1,11 @@
+@import "../../assets/stylesheets/mixins"
+@import "../../assets/stylesheets/colors"
+
 .Header
   display: flex
   align-items: center
   height: 80px
-  background: #FFFFFF
+  background: $white
   box-shadow: 0 1px 10px rgba(209, 209, 209, 0.5)
   position: relative
   z-index: 2
@@ -20,11 +23,7 @@
 
       > span
         padding-right: 15px
-        font-style: normal
-        font-weight: 500
-        font-size: 14px
-        line-height: 24px
-        color: #303030
+        +text(14px, $darkGrey, 500, 24px)
 
       > svg
         width: 30px

@@ -1,3 +1,6 @@
+@import "../../../assets/stylesheets/mixins"
+@import "../../../assets/stylesheets/colors"
+
 .Checkbox
   box-sizing: border-box
   margin-top: 25px
@@ -12,26 +15,18 @@
   border: 0
 
 .Checkbox > div > input[type="checkbox"]:hover
-  border: 1px solid #E4163A
+  border: 1px solid $red
 
 .Checkbox > div > input[type="checkbox"]:disabled
-  background: #F6F6F6
+  background: $lightestGrey2
   border-radius: 1px
 
 .Checkbox > div > input[type="checkbox"]:checked
   background: #E4163A
 
 .Checkbox > div > label
-  font-style: normal
-  font-weight: 500
-  font-size: 14px
-  line-height: 24px
-  color: #707070
   padding-left: 10px
+  +text(14px, $grey, 500, 24px)
 
 .Checkbox > span
-  font-style: normal
-  font-weight: 500
-  font-size: 12px
-  line-height: 150%
-  color: #FF768E
+  +text(12px,$lightestRed, 500, 150%)

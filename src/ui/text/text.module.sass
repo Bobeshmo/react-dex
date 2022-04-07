@@ -1,13 +1,12 @@
+@import "../../assets/stylesheets/mixins"
+@import "../../assets/stylesheets/colors"
+
 .Text
-  font-style: normal
-  font-weight: 500
-  font-size: 14px
-  line-height: 24px
-  color: #707070
   margin-top: 25px
   text-align: center
+  +text(14px, $grey, 500, 24px)
 
 .Text
   a
     text-decoration-line: underline
-    color: #E4163A
+    color: $red

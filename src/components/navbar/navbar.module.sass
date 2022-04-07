@@ -1,7 +1,9 @@
+@import "../../assets/stylesheets/colors"
+
 .Navbar
   height: calc(100vh - 80px)
-  background: #FFFFFF
   width: 140px
+  background: $white
 
   > div
     padding: 20px 0
@@ -28,21 +30,21 @@
     height: auto
 
 .Active
-  color: #E4163A
+  color: $red
 
   > svg path
-    fill: #E4163A
+    fill: $red
 
 .SignOut
   display: flex
   flex-direction: column
   align-items: center
   cursor: pointer
-  color: #FF768E
+  color: $lightestRed
 
   > svg
     width: 25px
     height: auto
 
   > svg path
-    fill: #FF768E
+    fill: $lightestRed

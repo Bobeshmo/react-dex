@@ -11,3 +11,12 @@
   @media (max-width: $deviceMax) and (min-width: $deviceMin)
     @content
 /* END @media mixin */
+
+/* text mixin */
+=text($size, $color, $fontWeight: normal, $lineHeight: normal)
+  font-style: normal
+  font-weight: $fontWeight
+  font-size: $size
+  line-height: $lineHeight
+  color: $color
+/* END text mixin */

@@ -1,12 +1,11 @@
+@import "../../assets/stylesheets/mixins"
+@import "../../assets/stylesheets/colors"
+
 .Notification
   position: absolute
   right: 20px
   top: 20px
   background: #FF5761
-  border-radius: 4px
-  font-style: normal
-  font-weight: 500
-  font-size: 16px
-  line-height: 24px
-  color: #FFFFFF
   padding: 10px 10px
+  border-radius: 4px
+  +text(16px, $white, 500, 24px)
