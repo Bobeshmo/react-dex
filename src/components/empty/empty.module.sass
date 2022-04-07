@@ -1,0 +1,21 @@
+@import "../../assets/stylesheets/mixins"
+@import "../../assets/stylesheets/colors"
+
+.Empty
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  width: 550px
+  height: 570px
+  background: $white
+  border-radius: 15px
+
+  h1
+    margin-top: 80px
+    +text(36px, $lightestRed, 800, 49px)
+
+  span
+    display: block
+    margin-top: 25px
+    +text(24px, $grey, 400, 33px)

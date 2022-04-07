@@ -1,6 +1,7 @@
 import {AuthService} from "../../../api/services/authService";
+import {AppDispatch} from "../store";
 
-const login = (login: string, password: string) => (dispatch: any) => {
+const login = (login: string, password: string) => (dispatch: AppDispatch) => {
     return AuthService.onHandleSignIn(login, password).then(
         (response) => {
             localStorage.setItem("token", response.data.token)
@@ -16,7 +17,7 @@ const login = (login: string, password: string) => (dispatch: any) => {
     );
 };
 
-const register = (userName: string, login: string, password: string) => (dispatch: any) => {
+const register = (userName: string, login: string, password: string) => (dispatch: AppDispatch) => {
     return AuthService.onHandleSignUp(userName, login, password).then(
         (response) => {
             localStorage.setItem("token", response.data.token)

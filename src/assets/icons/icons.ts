@@ -12,6 +12,8 @@ import {ReactComponent as Logo} from "./Logo.svg";
 import {ReactComponent as Group} from "./Group.svg";
 import {ReactComponent as Group2} from "./Group_2.svg";
 import {ReactComponent as NoMatch} from "./NoMatch.svg";
+import {ReactComponent as EmptyTeams} from "./Empty_teams.svg";
+import {ReactComponent as EmptyPlayers} from "./Empty_players.svg";
 
 export {
     Add,
@@ -27,5 +29,7 @@ export {
     Logo,
     Group,
     Group2,
-    NoMatch
+    NoMatch,
+    EmptyTeams,
+    EmptyPlayers
 }
