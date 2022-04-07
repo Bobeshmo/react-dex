@@ -3,15 +3,15 @@
   background: #FFFFFF
   width: 140px
 
-.Navbar > div
-  padding: 20px 0
-  height: 100%
-  display: flex
-  flex-direction: column
-  justify-content: space-between
+  > div
+    padding: 20px 0
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
-.Navbar > nav
-  padding: 20px 0
+  > nav
+    padding: 20px 0
 
 .Link
   display: flex
@@ -20,28 +20,29 @@
   text-decoration: none
   padding-bottom: 20px
 
-.Link:last-child
-  padding-bottom: 0
+  &:last-child
+    padding-bottom: 0
 
-.Link > svg
-  width: 25px
-  height: auto
+  > svg
+    width: 25px
+    height: auto
 
 .Active
   color: #E4163A
 
-.Active > svg path
-  fill: #E4163A
+  > svg path
+    fill: #E4163A
 
 .SignOut
   display: flex
   flex-direction: column
   align-items: center
+  cursor: pointer
   color: #FF768E
 
-.SignOut > svg
-  width: 25px
-  height: auto
+  > svg
+    width: 25px
+    height: auto
 
-.SignOut > svg path
-  fill: #FF768E
+  > svg path
+    fill: #FF768E

@@ -1,41 +1,39 @@
+@import "../../assets/stylesheets/mixin"
+
 .Authentication
   display: flex
   height: 100vh
 
-.Authentication > .form
-  width: 40%
-  display: flex
-  justify-content: center
-  align-items: center
+  > .form
+    width: 40%
+    display: flex
+    justify-content: center
+    align-items: center
+    +breakpointDown(1024px)
+      width: 100%
 
-.Authentication > .group
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-grow: 1
-  background: #F5FBFF
+    > .Authentication_form
+      width: 365px
+      +breakpointDown(425px)
+        width: 100%
+        padding: 0 20px
 
-.Authentication > .group > img
-  width: 600px
+  > .group
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-grow: 1
+    background: #F5FBFF
+    +breakpointDown(1024px)
+      display: none
 
-.Authentication > .form > .Authentication_form
-  width: 365px
+    > img
+      width: 600px
 
-.Authentication form > h1
-  font-style: normal
-  font-weight: normal
-  font-size: 36px
-  line-height: 49px
-  color: #344472
-
-@media screen and (max-width: 1024px)
-  .Authentication > .group
-    display: none
-
-  .Authentication .form
-    width: 100%
-
-@media screen and (max-width: 425px)
-  .Authentication > .form > .Authentication_form
-    width: 100%
-    padding: 0 20px
+  form
+    > h1
+      font-style: normal
+      font-weight: normal
+      font-size: 36px
+      line-height: 49px
+      color: #344472

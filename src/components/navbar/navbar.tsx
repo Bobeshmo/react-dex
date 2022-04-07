@@ -1,6 +1,11 @@
 import React from 'react';
+import {AuthService} from "../../api/services/authService";
 import {NavLink} from "react-router-dom";
-import {GroupPerson, LogOut, Person} from '../../assets/icons/icons'
+import {
+    GroupPerson,
+    LogOut,
+    Person
+} from '../../assets/icons/icons'
 import styles from './navbar.module.sass'
 
 export const Navbar = () => {
@@ -31,7 +36,10 @@ export const Navbar = () => {
                         <span>Players</span>
                     </NavLink>
                 </nav>
-                <div className={styles.SignOut}>
+                <div
+                    onClick={() => AuthService.logOut()}
+                    className={styles.SignOut}
+                >
                     <LogOut/>
                     <span>Sign out</span>
                 </div>

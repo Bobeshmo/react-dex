@@ -369,7 +369,7 @@ module.exports = function (webpackEnv) {
               },
             },
             // "url" loader works like "file" loader except that it embeds assets
-            // smaller than specified limit in bytes as data URLs to avoid requests.
+            // smaller than specified limit in bytes as data URLs to avoid services.
             // A missing `test` is equivalent to a match.
             {
               test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],

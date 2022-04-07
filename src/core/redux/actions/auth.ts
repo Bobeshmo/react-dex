@@ -1,4 +1,4 @@
-import {AuthService} from "../../../api/requests/authorization";
+import {AuthService} from "../../../api/services/authService";
 
 const login = (login: string, password: string) => (dispatch: any) => {
     return AuthService.onHandleSignIn(login, password).then(
