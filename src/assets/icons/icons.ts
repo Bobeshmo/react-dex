@@ -11,6 +11,7 @@ import {ReactComponent as Search} from "./Search.svg";
 import {ReactComponent as Logo} from "./Logo.svg";
 import {ReactComponent as Group} from "./Group.svg";
 import {ReactComponent as Group2} from "./Group_2.svg";
+import {ReactComponent as NoMatch} from "./NoMatch.svg";
 
 export {
     Add,
@@ -25,5 +26,6 @@ export {
     Search,
     Logo,
     Group,
-    Group2
+    Group2,
+    NoMatch
 }
