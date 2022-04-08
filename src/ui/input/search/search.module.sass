@@ -1,0 +1,26 @@
+@import "../../../assets/stylesheets/mixins"
+@import "../../../assets/stylesheets/colors"
+
+.Search
+  display: flex
+  align-items: center
+  position: relative
+
+  > input
+    font-family: Avenir, sans-serif
+    background: $white
+    width: 100%
+    height: 40px
+    padding-left: 12px
+    border-radius: 4px
+    outline: 0
+    border: 0
+    +text(14px, $darkGrey, 500, 24px)
+
+    &:focus
+      box-shadow: 0 0 5px $lightestGrey4
+
+  svg
+    cursor: pointer
+    position: absolute
+    right: 10px

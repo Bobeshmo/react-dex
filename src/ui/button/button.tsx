@@ -9,17 +9,15 @@ interface IButtonProps {
     disabled?: boolean;
 }
 
-export function Button({text, height, width, disabled=false, children}: IButtonProps) {
+export function Button({text, height, width, disabled = false, children}: IButtonProps) {
     return (
-        <>
-            <button
-                disabled={disabled}
-                style={{height: height, width: width}}
-                className={styles.btn}
-            >
-                {text}
-                {children}
-            </button>
-        </>
+        <button
+            disabled={disabled}
+            style={{height: height, width: width}}
+            className={styles.btn}
+        >
+            {text}
+            {children}
+        </button>
     );
 }

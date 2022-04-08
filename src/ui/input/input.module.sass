@@ -4,32 +4,32 @@
 .Input
   display: flex
   flex-direction: column
-  margin-top: 25px
 
-.Input > div > input
-  font-family: Avenir, sans-serif
-  background: $lightestGrey2
-  width: 100%
-  height: 40px
-  padding-left: 12px
-  border-radius: 4px
-  outline: 0
-  border: 0
-  +text(14px, $darkGrey, 500, 24px)
+  label
+    margin-bottom: 8px
+    +text(14px, $grey, 500, 24px)
 
-.Input > div > input:hover
-  background: $lightestGrey3
+  span
+    margin-top: 2px
+    +text(12px, $lightestRed, 500, 150%)
 
-.Input > div > input:focus
-  box-shadow: 0 0 5px $lightestGrey4
+  > div
+    > input
+      font-family: Avenir, sans-serif
+      background: $lightestGrey2
+      width: 100%
+      height: 40px
+      padding-left: 12px
+      border-radius: 4px
+      outline: 0
+      border: 0
+      +text(14px, $darkGrey, 500, 24px)
 
-.Input > div > input:disabled
-  color: $lightestGrey3
+      &:hover
+        background: $lightestGrey3
 
-.Input label
-  margin-bottom: 8px
-  +text(14px, $grey, 500, 24px)
+      &:focus
+        box-shadow: 0 0 5px $lightestGrey4
 
-.Input span
-  margin-top: 2px
-  +text(12px, $lightestRed, 500, 150%)
+      &:disabled
+        color: $lightestGrey3

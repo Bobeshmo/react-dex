@@ -1,0 +1,30 @@
+@import "../../assets/stylesheets/mixins"
+@import "../../assets/stylesheets/colors"
+
+.TeamCard
+  display: flex
+  flex-direction: column
+  border-collapse: separate
+  border-radius: 4px
+  overflow: hidden
+
+  .Image
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-grow: 1
+    background: linear-gradient(121.57deg, #707070 1.62%, #393939 81.02%)
+    color: $white
+
+  .Info
+    display: flex
+    flex-direction: column
+    text-align: center
+    background: $darkGrey
+    padding: 20px 0
+
+    h3
+      +text(18px, $white, 500, 25px)
+
+    p
+      +text(14px, $lightestGrey1, 500, 24px)

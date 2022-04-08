@@ -3,30 +3,29 @@
 
 .Checkbox
   box-sizing: border-box
-  margin-top: 25px
 
-.Checkbox > div
-  display: flex
-  align-items: center
+  > span
+    +text(12px, $lightestRed, 500, 150%)
 
-.Checkbox > div > input
-  border-radius: 2px
-  cursor: pointer
-  border: 0
+  > div
+    display: flex
+    align-items: center
 
-.Checkbox > div > input[type="checkbox"]:hover
-  border: 1px solid $red
+    > label
+      padding-left: 10px
+      +text(14px, $grey, 500, 24px)
 
-.Checkbox > div > input[type="checkbox"]:disabled
-  background: $lightestGrey2
-  border-radius: 1px
+    > input
+      border-radius: 2px
+      cursor: pointer
+      border: 0
 
-.Checkbox > div > input[type="checkbox"]:checked
-  background: #E4163A
+      &:hover
+        border: 1px solid $red
 
-.Checkbox > div > label
-  padding-left: 10px
-  +text(14px, $grey, 500, 24px)
+      &:disabled
+        background: $lightestGrey2
+        border-radius: 1px
 
-.Checkbox > span
-  +text(12px,$lightestRed, 500, 150%)
+      &:checked
+        background: #E4163A

@@ -14,6 +14,8 @@ import {ReactComponent as Group2} from "./Group_2.svg";
 import {ReactComponent as NoMatch} from "./NoMatch.svg";
 import {ReactComponent as EmptyTeams} from "./Empty_teams.svg";
 import {ReactComponent as EmptyPlayers} from "./Empty_players.svg";
+import {ReactComponent as Next} from "./Next.svg";
+import {ReactComponent as Prev} from "./Prev.svg";
 
 export {
     Add,
@@ -31,5 +33,7 @@ export {
     Group2,
     NoMatch,
     EmptyTeams,
-    EmptyPlayers
+    EmptyPlayers,
+    Next,
+    Prev
 }

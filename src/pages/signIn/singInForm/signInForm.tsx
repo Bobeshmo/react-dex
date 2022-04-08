@@ -20,7 +20,7 @@ export function SignInForm() {
         if (user) {
             navigate("/")
         }
-    }, [user])
+    }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const validationSchema = Yup.object({
         login: Yup.string().required("Login is a required field"),
@@ -43,7 +43,11 @@ export function SignInForm() {
     })
 
     return (
-        <form onSubmit={onHandleSubmit}>
+        <form onSubmit={onHandleSubmit} style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gridGap: "25px",
+        }}>
             <h1>Sign In</h1>
             <Input
                 register={register}
