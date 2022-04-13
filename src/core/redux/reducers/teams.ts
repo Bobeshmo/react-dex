@@ -1,24 +1,25 @@
-import {ITeams} from "../../../api/models/ITeams";
-import {
-    SET_TEAMS
-} from "./type";
-
-interface IState {
-    teams: ITeams | null,
-}
+import {TeamActionType, TeamActionTypes} from "../types/teams";
+import {IState} from "../types/teams";
 
 const initialState: IState = {
-    teams: null
+    teams: null,
+    loading: false,
+    error: null,
 }
 
-export function teams(state = initialState, action: any) {
-    const {type, payload} = action
-
-    switch (type) {
-        case SET_TEAMS:
+export function teams(state = initialState, action: TeamActionTypes) {
+    switch (action.type) {
+        case TeamActionType.FETCH_TEAMS:
             return {
                 ...state,
-                teams: payload
+                loading: true,
+                teams: null,
+            }
+        case TeamActionType.FETCH_TEAMS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                teams: action.payload
             };
         default:
             return state;

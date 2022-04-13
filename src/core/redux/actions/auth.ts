@@ -1,39 +1,40 @@
 import {AuthService} from "../../../api/services/authService";
-import {AppDispatch} from "../store";
+import {Dispatch} from "redux";
+import {AuthAction, AuthActionTypes} from "../types/auth";
 
-const login = (login: string, password: string) => (dispatch: AppDispatch) => {
+const onHandleLogin = (login: string, password: string) => (dispatch: Dispatch<AuthAction>) => {
     return AuthService.onHandleSignIn(login, password).then(
         (response) => {
             localStorage.setItem("token", response.data.token)
             dispatch({
-                type: "LOGIN_SUCCESS",
+                type: AuthActionTypes.LOGIN_SUCCESS,
                 payload: {user: response.data.name},
             });
         }, ((error) => {
             dispatch({
-                type: "LOGIN_FAIL",
+                type: AuthActionTypes.LOGIN_FAIL,
             });
         })
     );
 };
 
-const register = (userName: string, login: string, password: string) => (dispatch: AppDispatch) => {
+const onHandleRegister = (userName: string, login: string, password: string) => (dispatch: Dispatch<AuthAction>) => {
     return AuthService.onHandleSignUp(userName, login, password).then(
         (response) => {
             localStorage.setItem("token", response.data.token)
             dispatch({
-                type: "REGISTER_SUCCESS",
+                type: AuthActionTypes.REGISTER_SUCCESS,
                 payload: {user: response.data.name},
             });
         }, ((error) => {
             dispatch({
-                type: "REGISTER_FAIL",
+                type: AuthActionTypes.REGISTER_FAIL,
             });
         })
     );
 };
 
 export {
-    login,
-    register
+    onHandleLogin,
+    onHandleRegister,
 }

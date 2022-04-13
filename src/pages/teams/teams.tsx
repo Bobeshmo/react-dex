@@ -4,43 +4,29 @@ import {Header} from "../../components/header/header";
 import {Card} from "../../components/card/card";
 import {Search} from "../../ui/input/search/search";
 import {Button} from "../../ui/button/button";
-import {Empty} from "../../components/empty/empty";
 import ReactPaginate from "react-paginate";
 import {getTeams} from "../../core/redux/actions/teams"
-import {useDispatch, useSelector} from "react-redux";
-import {EmptyTeams, Next, Prev} from "../../assets/icons/icons";
-import {RootState} from "../../core/redux/store";
-import {IData} from "../../api/models/ITeams";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useTeamActions} from "../../hooks/useActions";
+import {Next, Prev} from "../../assets/icons/icons";
+import {LoadingTeam} from "./loadingTeams";
+import {EmptyTeam} from "./emptyTeams";
 import styles from './teams.module.sass'
 
 export const Teams = () => {
-    const dispatch = useDispatch()
-    const teams = useSelector((state: RootState) => state.teams.teams)
+    const {getTeams} = useTeamActions();
+    const {teams, loading} = useTypedSelector(state => state.teams)
 
     useEffect(() => {
-        dispatch(getTeams())
+        getTeams()
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+
+    if (loading) {
+        return <LoadingTeam/>
+    }
     if (!teams) {
-        return (
-            <div className={styles.Teams}>
-                <Header/>
-                <main>
-                    <Navbar/>
-                    <div className={styles.Content}>
-                        <div className={styles.Header}>
-                            <Search/>
-                            <Button text='Add'/>
-                        </div>
-                        <div className={styles.Body}>
-                            <div className={styles.Empty}>
-                                <Empty icon={<EmptyTeams/>} text="Add new teams to continue"/>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        );
+        return <EmptyTeam/>
     }
 
     return (
@@ -55,7 +41,7 @@ export const Teams = () => {
                     </div>
                     <div className={styles.Body}>
                         <div className={styles.Cards}>
-                            {teams.data.map((team: IData) => (
+                            {teams.data.map((team) => (
                                 <Card
                                     key={team.id}
                                     name={team.name}

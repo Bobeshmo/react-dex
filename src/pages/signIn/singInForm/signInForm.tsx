@@ -4,17 +4,16 @@ import {Button} from "../../../ui/button/button";
 import {Input} from '../../../ui/input/input';
 import {Text} from "../../../ui/text/text";
 import {Link, useNavigate} from "react-router-dom";
-import {login as onHandleLogin} from "../../../core/redux/actions/auth";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../../core/redux/store";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {useAuthActions} from "../../../hooks/useActions";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 
 export function SignInForm() {
-    const dispatch = useDispatch()
     const navigate = useNavigate()
-    const user = useSelector((state: RootState) => state.auth.user)
+    const {onHandleLogin} = useAuthActions()
+    const user = useTypedSelector(state => state.auth.user)
 
     useEffect(() => {
         if (user) {
@@ -39,7 +38,7 @@ export function SignInForm() {
     })
 
     const onHandleSubmit = handleSubmit((data) => {
-        dispatch(onHandleLogin(data.login, data.password))
+        onHandleLogin(data.login, data.password)
     })
 
     return (

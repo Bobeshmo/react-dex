@@ -1,10 +1,12 @@
 import {TeamsService} from "../../../api/services/teamsService";
-import {AppDispatch} from "../store";
+import {TeamActionType, TeamActionTypes} from "../types/teams";
+import {Dispatch} from "redux";
 
-export const getTeams = () => (dispatch: AppDispatch) => {
+export const getTeams = () => (dispatch: Dispatch<TeamActionTypes>) => {
+    dispatch({type: TeamActionType.FETCH_TEAMS});
     return TeamsService.getTeams().then(response => {
         dispatch({
-            type: "SET_TEAMS",
+            type: TeamActionType.FETCH_TEAMS_SUCCESS,
             payload: response.data
         })
     })
