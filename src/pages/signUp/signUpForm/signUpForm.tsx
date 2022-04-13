@@ -6,13 +6,13 @@ import {Input} from "../../../ui/input/input";
 import {Text} from "../../../ui/text/text";
 import {Link, useNavigate} from "react-router-dom";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {useAuthActions} from "../../../hooks/useActions";
+import {useActions} from "../../../hooks/useActions";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 
 export function SignUpForm() {
-    const {onHandleRegister} = useAuthActions()
+    const {onHandleRegister} = useActions()
     const navigate = useNavigate()
     const user = useTypedSelector(state => state.auth.user)
 

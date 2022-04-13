@@ -5,16 +5,15 @@ import {Card} from "../../components/card/card";
 import {Search} from "../../ui/input/search/search";
 import {Button} from "../../ui/button/button";
 import ReactPaginate from "react-paginate";
-import {getTeams} from "../../core/redux/actions/teams"
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useTeamActions} from "../../hooks/useActions";
+import {useActions} from "../../hooks/useActions";
 import {Next, Prev} from "../../assets/icons/icons";
 import {LoadingTeam} from "./loadingTeams";
 import {EmptyTeam} from "./emptyTeams";
 import styles from './teams.module.sass'
 
 export const Teams = () => {
-    const {getTeams} = useTeamActions();
+    const {getTeams} = useActions();
     const {teams, loading} = useTypedSelector(state => state.teams)
 
     useEffect(() => {

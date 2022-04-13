@@ -1,19 +1,8 @@
 import {useDispatch} from 'react-redux';
 import {bindActionCreators} from "redux";
-import * as AuthAction from "../core/redux/actions/auth";
-import * as TeamAction from "../core/redux/actions/teams";
+import Actions from "../core/redux/actions";
 
-const useAuthActions = () => {
+export const useActions = () => {
     const dispatch = useDispatch();
-    return bindActionCreators(AuthAction, dispatch);
+    return bindActionCreators(Actions, dispatch);
 };
-
-const useTeamActions = () => {
-    const dispatch = useDispatch();
-    return bindActionCreators(TeamAction, dispatch);
-};
-
-export {
-    useAuthActions,
-    useTeamActions,
-}
