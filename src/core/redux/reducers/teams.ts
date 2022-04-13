@@ -1,7 +1,4 @@
-import {ITeams} from "../../../api/models/ITeams";
-import {
-    SET_TEAMS
-} from "./type";
+import {ITeams, TeamActionType, TeamActionTypes} from "../types/teams";
 
 interface IState {
     teams: ITeams | null,
@@ -11,14 +8,12 @@ const initialState: IState = {
     teams: null
 }
 
-export function teams(state = initialState, action: any) {
-    const {type, payload} = action
-
-    switch (type) {
-        case SET_TEAMS:
+export function teams(state = initialState, action: TeamActionTypes) {
+    switch (action.type) {
+        case TeamActionType.SET_TEAMS:
             return {
                 ...state,
-                teams: payload
+                teams: action.payload
             };
         default:
             return state;

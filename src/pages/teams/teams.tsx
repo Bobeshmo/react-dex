@@ -7,15 +7,14 @@ import {Button} from "../../ui/button/button";
 import {Empty} from "../../components/empty/empty";
 import ReactPaginate from "react-paginate";
 import {getTeams} from "../../core/redux/actions/teams"
-import {useDispatch, useSelector} from "react-redux";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useDispatch} from "react-redux";
 import {EmptyTeams, Next, Prev} from "../../assets/icons/icons";
-import {RootState} from "../../core/redux/store";
-import {IData} from "../../api/models/ITeams";
 import styles from './teams.module.sass'
 
 export const Teams = () => {
     const dispatch = useDispatch()
-    const teams = useSelector((state: RootState) => state.teams.teams)
+    const teams = useTypedSelector(state => state.teams.teams)
 
     useEffect(() => {
         dispatch(getTeams())
@@ -55,7 +54,7 @@ export const Teams = () => {
                     </div>
                     <div className={styles.Body}>
                         <div className={styles.Cards}>
-                            {teams.data.map((team: IData) => (
+                            {teams.data.map((team) => (
                                 <Card
                                     key={team.id}
                                     name={team.name}

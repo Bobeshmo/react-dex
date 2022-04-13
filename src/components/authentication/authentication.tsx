@@ -1,7 +1,6 @@
 import React from 'react';
 import {Notification} from "../../ui/notification/notification";
-import {useSelector} from "react-redux";
-import {RootState} from "../../core/redux/store";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 import styles from './authentication.module.sass'
 
 interface IAuthentication {
@@ -10,7 +9,7 @@ interface IAuthentication {
 }
 
 export const Authentication = (props: IAuthentication)  => {
-    const errorMessage = useSelector((state : RootState) => state.auth.message)
+    const errorMessage = useTypedSelector(state => state.auth.message)
 
     return (
         <div className={styles.Authentication}>
