@@ -18,8 +18,7 @@ export const Teams = () => {
 
     useEffect(() => {
         getTeams()
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
+    }, [])
 
     if (loading) {
         return <LoadingTeam/>

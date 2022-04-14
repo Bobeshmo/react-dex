@@ -10,7 +10,7 @@ const onHandleLogin = (login: string, password: string) => (dispatch: Dispatch<A
                 type: AuthActionTypes.LOGIN_SUCCESS,
                 payload: {user: response.data.name},
             });
-        }, ((error) => {
+        }, (() => {
             dispatch({
                 type: AuthActionTypes.LOGIN_FAIL,
             });
@@ -26,7 +26,7 @@ const onHandleRegister = (userName: string, login: string, password: string) => 
                 type: AuthActionTypes.REGISTER_SUCCESS,
                 payload: {user: response.data.name},
             });
-        }, ((error) => {
+        }, (() => {
             dispatch({
                 type: AuthActionTypes.REGISTER_FAIL,
             });

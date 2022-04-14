@@ -1,10 +1,11 @@
 import HTTP from "./instanceAxios";
 
-HTTP.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
-
 export const AxiosInterceptorsSetup = (navigate: any) => {
     HTTP.interceptors.response.use(
-        async (response) => response,
+        async (response) => {
+            HTTP.defaults.headers.common['Authorization'] = `Bearer ${response.data.token || localStorage.getItem('token')}`;
+            return response
+        },
         async (error) => {
             if (error.response.status === 401) {
                 navigate("/login")

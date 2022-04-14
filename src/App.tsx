@@ -19,7 +19,7 @@ function App() {
                 <Route element={<PrivateRoute/>}>
                     <Route path="/" element={<Navigate to="/teams"/>}/>
                     {
-                        privateRoutes.map((route, index) => {
+                        privateRoutes.map((route) => {
                             return <Route
                                 key={route.path}
                                 path={route.path}

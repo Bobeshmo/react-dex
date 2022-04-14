@@ -1,7 +1,7 @@
 import * as AuthActions from './auth';
 import * as TeamActions from './teams';
 
-export default {
+export const Actions = {
     ...AuthActions,
     ...TeamActions,
 }
