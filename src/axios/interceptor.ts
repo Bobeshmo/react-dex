@@ -3,7 +3,8 @@ import HTTP from "./instanceAxios";
 export const AxiosInterceptorsSetup = (navigate: any) => {
     HTTP.interceptors.response.use(
         async (response) => {
-            HTTP.defaults.headers.common['Authorization'] = `Bearer ${response.data.token || localStorage.getItem('token')}`;
+            const token = localStorage.getItem('token') || response.data.token;
+            HTTP.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             return response
         },
         async (error) => {

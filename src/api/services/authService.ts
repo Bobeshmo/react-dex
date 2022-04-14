@@ -6,6 +6,9 @@ export class AuthService {
         return HTTP.post<ISignIn>('api/Auth/signIn', {
             login: login,
             password: password
+        }).then(response => {
+            localStorage.setItem('token', response.data.token);
+            return response.data;
         })
     }
 
@@ -14,6 +17,9 @@ export class AuthService {
             userName: userName,
             login: login,
             password: password
+        }).then(response => {
+            localStorage.setItem('token', response.data.token);
+            return response.data;
         })
     }
 

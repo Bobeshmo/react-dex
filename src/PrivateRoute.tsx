@@ -8,11 +8,10 @@ export const PrivateRoute = () => {
     const user = useSelector((state: RootState) => state.auth.user)
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-
-        token && user ? setIsAuthenticated(true) : setIsAuthenticated(false)
-
-    }, [isAuthenticated, user]);
+        user
+            ? setIsAuthenticated(true)
+            : setIsAuthenticated(false)
+    }, [user]);
 
     if (isAuthenticated === null) return null;
 

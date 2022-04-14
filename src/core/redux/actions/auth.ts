@@ -5,10 +5,9 @@ import {AuthAction, AuthActionTypes} from "../types/auth";
 const onHandleLogin = (login: string, password: string) => (dispatch: Dispatch<AuthAction>) => {
     return AuthService.onHandleSignIn(login, password).then(
         (response) => {
-            localStorage.setItem("token", response.data.token)
             dispatch({
                 type: AuthActionTypes.LOGIN_SUCCESS,
-                payload: {user: response.data.name},
+                payload: {user: response.name},
             });
         }, (() => {
             dispatch({
@@ -21,10 +20,9 @@ const onHandleLogin = (login: string, password: string) => (dispatch: Dispatch<A
 const onHandleRegister = (userName: string, login: string, password: string) => (dispatch: Dispatch<AuthAction>) => {
     return AuthService.onHandleSignUp(userName, login, password).then(
         (response) => {
-            localStorage.setItem("token", response.data.token)
             dispatch({
                 type: AuthActionTypes.REGISTER_SUCCESS,
-                payload: {user: response.data.name},
+                payload: {user: response.name},
             });
         }, (() => {
             dispatch({
