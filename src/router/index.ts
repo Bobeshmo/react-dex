@@ -4,6 +4,7 @@ import {SignUp} from "../pages/signUp/signUp";
 import {NoMatch} from "../pages/noMatch/noMatch";
 import {Teams} from "../pages/teams/teams";
 import {Players} from "../pages/players/players";
+import {AddTeam} from "../pages/teams/addTeam/addTeam";
 
 export interface IRouter {
     path: string;
@@ -29,6 +30,10 @@ export const privateRoutes: IRouter[] = [
     {
         path: "/teams",
         element: Teams
+    },
+    {
+        path: "/teams/add",
+        element: AddTeam
     },
     {
         path: "/players",

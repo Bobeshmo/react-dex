@@ -7,13 +7,17 @@ interface IButtonProps {
     width?: string | number;
     height?: string | number;
     disabled?: boolean;
+    onClick?: () => void;
+    type?: 'button' | 'submit';
 }
 
-export function Button({text, height, width, disabled = false, children}: IButtonProps) {
+export function Button({text, height, width, disabled = false, children, onClick, type='button'}: IButtonProps) {
     return (
         <button
-            disabled={disabled}
+            type={type}
             style={{height: height, width: width}}
+            onClick={onClick}
+            disabled={disabled}
             className={styles.btn}
         >
             {text}

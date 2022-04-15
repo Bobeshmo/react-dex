@@ -62,7 +62,7 @@ export function SignInForm() {
                 name="password"
                 error={errors.password?.message}
             />
-            <Button disabled={!isValid} text="Sign In"/>
+            <Button type='submit' disabled={!isValid} text="Sign In"/>
             <Text>Not a member yet? <Link className="Link" to="/register">Sign up</Link></Text>
         </form>
     );

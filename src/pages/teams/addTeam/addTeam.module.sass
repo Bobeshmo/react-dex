@@ -1,0 +1,37 @@
+@import "../../../assets/stylesheets/mixins"
+@import "../../../assets/stylesheets/colors"
+
+.AddTeam
+
+.Content
+  width: 100%
+  background: $lightestGrey2
+  padding: 30px 80px
+
+.Form
+  background: $white
+  border-radius: 10px
+
+  .Title
+    padding-top: 25px
+    padding-left: 25px
+    +text(14px, $red, 500, 24px)
+
+    span
+      color: $lightGrey
+
+  form
+    display: flex
+    margin-top: 25px
+    padding: 50px 70px
+
+    .Fields
+      margin-left: 100px
+      display: grid
+      grid-row-gap: 25px
+      width: 350px
+
+      .Buttons
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-column-gap: 25px

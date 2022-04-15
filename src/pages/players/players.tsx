@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './players.module.sass'
 import {Header} from "../../components/header/header";
 import {Navbar} from "../../components/navbar/navbar";
+import styles from './players.module.sass'
 
 export const Players = () => {
     return (
         <div className={styles.Players}>
-            <Header />
+            <Header/>
             <main>
-                <Navbar />
+                <Navbar/>
             </main>
         </div>
     );

@@ -10,9 +10,11 @@ import {useActions} from "../../hooks/useActions";
 import {Next, Prev} from "../../assets/icons/icons";
 import {LoadingTeam} from "./loadingTeams";
 import {EmptyTeam} from "./emptyTeams";
+import {useNavigate} from "react-router-dom";
 import styles from './teams.module.sass'
 
 export const Teams = () => {
+    const navigate = useNavigate()
     const {getTeams} = useActions();
     const {teams, loading} = useTypedSelector(state => state.teams)
 
@@ -35,7 +37,12 @@ export const Teams = () => {
                 <div className={styles.Content}>
                     <div className={styles.Header}>
                         <Search/>
-                        <Button text='Add'/>
+                        <Button
+                            text='Add'
+                            onClick={() => {
+                                navigate('/teams/add')
+                            }}
+                        />
                     </div>
                     <div className={styles.Body}>
                         <div className={styles.Cards}>

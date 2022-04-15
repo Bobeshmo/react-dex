@@ -86,7 +86,7 @@ export function SignUpForm() {
             />
             <Checkbox error={errors.check?.message} register={register} required name="check"
                       text="I accept the agreement"/>
-            <Button disabled={!isValid} text="Sign Up"/>
+            <Button type='submit' disabled={!isValid} text="Sign Up"/>
             <Text>Already a member? <Link className="Link" to="/login">Sign in</Link></Text>
         </form>
     );
