@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ImageService} from "../../../api/services/imageService";
 import {Header} from "../../../components/header/header";
 import {Navbar} from "../../../components/navbar/navbar";
@@ -10,12 +10,21 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import * as Yup from "yup";
 import styles from './addTeam.module.sass';
+import {TeamsService} from "../../../api/services/teamsService";
 
 const formData = new FormData();
 
 export const AddTeam = () => {
-    const [imageUrl, setImageUrl] = useState<string>("")
+    const [preview, setPreview] = useState<string | null>(null);
     const navigate = useNavigate()
+
+    useEffect(() => {
+        return () => {
+            if (typeof preview === "string") {
+                URL.revokeObjectURL(preview)
+            }
+        }
+    }, []);
 
     const validationSchema = Yup.object({
         name: Yup.string().required(),
@@ -34,22 +43,36 @@ export const AddTeam = () => {
     const {
         register,
         formState: {errors, isValid},
-        handleSubmit
+        handleSubmit,
+        reset
     } = useForm({
         mode: "all",
         resolver: yupResolver(validationSchema)
     })
 
     const onHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files)
+        if (e.target.files && e.target.files.length > 0) {
+            const objectUrl = URL.createObjectURL(e.target.files[0]);
             formData.append('file', e.target.files[0])
+            setPreview(objectUrl);
+        } else {
+            formData.delete('file');
+            setPreview(null);
+        }
     }
 
-    const onHandleSubmit = handleSubmit((data) => {
-        ImageService.saveImage(formData).then(r => {
-            setImageUrl(String(r))
-        });
-
+    const onHandleSubmit = handleSubmit(async (data) => {
+        const imageUrl: string = await ImageService.saveImage(formData)
+        await TeamsService.addTeam(data.name, data.yearOfFoundation, data.division, data.conference, imageUrl).then(() => {
+            setPreview(null);
+            formData.delete('file');
+            reset({
+                name: '',
+                yearOfFoundation: '',
+                division: '',
+                conference: '',
+            })
+        })
     });
 
     return (
@@ -68,6 +91,7 @@ export const AddTeam = () => {
                                 onChange={e => {
                                     onHandleChange(e)
                                 }}
+                                preview={preview}
                             />
                             <div className={styles.Fields}>
                                 <Input

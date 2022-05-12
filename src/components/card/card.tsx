@@ -11,7 +11,7 @@ export const Card: FC<Props> = ({image, name, foundationYear}) => {
     return (
         <div className={styles.TeamCard}>
             <div className={styles.Image}>
-                {image ? <img src={image} alt={name}/> : "No photo yet"}
+                {image ? <img src={`http://dev.trainee.dex-it.ru${image}`} alt={name}/> : "No photo yet"}
             </div>
             <div className={styles.Info}>
                 <h3 className={styles.Name}>{name}</h3>

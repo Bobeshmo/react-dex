@@ -1,14 +1,17 @@
 import React from 'react';
 import {AuthService} from "../../api/services/authService";
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import {
     GroupPerson,
     LogOut,
     Person
 } from '../../assets/icons/icons'
+import classNames from "classnames";
 import styles from './navbar.module.sass'
 
 export const Navbar = () => {
+    const location = useLocation();
+
     return (
         <div className={styles.Navbar}>
             <div>
@@ -16,10 +19,7 @@ export const Navbar = () => {
                     <NavLink
                         end
                         to="/teams"
-                        className={({isActive}) =>
-                            styles.Link + ' ' +
-                            (isActive ? styles.Active : '')
-                        }
+                        className={classNames(styles.Link, {[styles.Active]: location.pathname.startsWith('/team')})}
                     >
                         <GroupPerson/>
                         <span>Teams</span>
@@ -27,10 +27,7 @@ export const Navbar = () => {
                     <NavLink
                         end
                         to="/players"
-                        className={({isActive}) =>
-                            styles.Link + ' ' +
-                            (isActive ? styles.Active : '')
-                        }
+                        className={classNames(styles.Link, {[styles.Active]: location.pathname.startsWith('/player')})}
                     >
                         <Person/>
                         <span>Players</span>

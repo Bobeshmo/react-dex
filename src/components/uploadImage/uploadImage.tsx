@@ -8,9 +8,10 @@ interface IProps {
     register: UseFormRegister<any>;
     required?: boolean;
     name: string
+    preview: string | null
 }
 
-export const UploadImage: FC<IProps> = ({onChange, register, required, name}) => {
+export const UploadImage: FC<IProps> = ({onChange, register, required, name, preview}) => {
     return (
         <div className={styles.UploadImage}>
             <input
@@ -18,6 +19,7 @@ export const UploadImage: FC<IProps> = ({onChange, register, required, name}) =>
                 type="file"
                 onChange={onChange}
             />
+            {preview && <img src={preview} alt="preview"/>}
             <AddImage/>
         </div>
     );
